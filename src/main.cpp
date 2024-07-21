@@ -59,7 +59,7 @@ pros::Rotation vert(-8);
 //lemlib::TrackingWheel left_tracking_wheel(&left_enc, lemlib::Omniwheel::NEW_275, -4.3, 2);
 lemlib::TrackingWheel trackwheel(&vert, lemlib::Omniwheel::NEW_275,0);
 
-pros::v5::IMU imu(10);
+pros::Imu imu(10);
 
 lemlib::OdomSensors sensors(&trackwheel, //  tracking wheel 1
 							nullptr,
@@ -97,9 +97,7 @@ void on_center_button() {
 void initialize() {
 	chassis.calibrate();
 	pros::lcd::initialize();
-
-	pros::lcd::register_btn1_cb(on_center_button);
-
+	pros::Task screen_task([&]() {
 	while (true) { // infinite loop
         // print measurements from the adi encoder
   		pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
@@ -107,6 +105,7 @@ void initialize() {
         pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
         pros::delay(20); // delay to save resources. DO NOT REMOVE
     }
+	});
 	
 }
 
@@ -176,6 +175,9 @@ void redRush(){
 void autonomous() {
 	chassis.setPose(0,0,0);
 	chassis.moveToPoint(0, 10, 3000);
+	firstIntake.move(127);
+	delay(1000);
+	firstIntake.move(0);
 }
 
 /**
