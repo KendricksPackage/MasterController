@@ -38,7 +38,6 @@
 #include "api.h"
 
 
-
 /**
  * You should add more #includes here
  */
@@ -80,23 +79,23 @@ void opcontrol();
  */
 //#include <iostream>
 #endif
-// extern pros::v5::Motor leftFrontDrive;
-// extern pros::v5::Motor rightFrontDrive;
-// extern pros::v5::Motor leftBackDrive;
-// extern pros::v5::Motor rightBackDrive;
-// extern pros::v5::Motor leftMiddleDrive;
-// extern pros::v5::Motor rightMiddleDrive;
-// extern pros::v5::Motor intakeNeg;
-// extern pros::v5::Motor intakePos;
-// extern pros::v5::Motor Convey;
-// extern pros::v5::Motor firstIntake;
-// extern pros::v5::Motor secondIntake;
+extern pros::v5::Motor leftFrontDrive;
+extern pros::v5::Motor rightFrontDrive;
+extern pros::v5::Motor leftBackDrive;
+extern pros::v5::Motor rightBackDrive;
+extern pros::v5::Motor leftMiddleDrive;
+extern pros::v5::Motor rightMiddleDrive;
+extern pros::v5::Motor intakeNeg;
+extern pros::v5::Motor intakePos;
+extern pros::v5::Motor Convey;
+extern pros::v5::Motor firstIntake;
+extern pros::v5::Motor secondIntake;
 
-// extern pros::Controller master;
+extern pros::Controller master;
 
-// extern pros::adi::DigitalOut hangs;
-// extern pros::adi::DigitalOut clamp;
+extern pros::adi::DigitalOut hang;
+extern pros::adi::DigitalOut clamp;
 
-// extern pros::v5::IMU imu;
-// extern pros::Rotation odomVerticalPod;
+extern pros::v5::IMU imu;
+extern pros::Rotation odomVerticalPod;
 #endif  // _PROS_MAIN_H_
